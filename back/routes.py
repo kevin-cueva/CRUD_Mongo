@@ -8,7 +8,7 @@ class Caballeros(Resource):
     def get(self):
         detalles = Conexion.collection.find()
         data = object_json(detalles)
-        return jsonify({"data": data}) 
+        return jsonify(data) 
     def post(self):
         data = request.json
         Conexion.collection.insert_one(data)
