@@ -26,8 +26,32 @@ const Tabla = ()=>{
     },[URL]);
     return(
         <>
-            <h3>Lista de Caballeros</h3>
-            {data.map(item=><div key={item.key}>{item.name}</div>)}           
+         <h3>Tabla de datos</h3>
+        <table>
+          <thead>
+            <tr>
+
+             <th>Nombre</th>
+             <th>Constelacion</th>
+             <th>Acciones</th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+            {data.length >0?
+            (
+                data.map(item=><tr key={item.key}>
+                    <td>{item.name}</td>
+                    <td>{item.signo}</td>
+                    </tr>)           
+                
+            ):(
+                <tr><td colSpan="3">Sin datos</td></tr>
+            )
+            }
+          </tbody>
+          </table>
         </>
     );
 }
