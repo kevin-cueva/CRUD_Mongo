@@ -1,14 +1,9 @@
 import React from "react";
-import { useState} from "react";
-import { helpHttp } from "../helpers/helpHttp";
+/* import { useState} from "react";
+import { helpHttp } from "../helpers/helpHttp"; */
 
-const initialForm = { // Objeto bacio para el formulario
-    nombre:"",
-    signo:"",
-    id:null,
-  }
-const CrudForm = ()=>{
-    const [dataForm, setDataForm] = useState(initialForm);
+const CrudForm = ({createData, handleChange, dataForm})=>{
+    
     
     //Funcion que hace la evaluacion antes de enviar los datos
     const handleSubmit = (e)=>{
@@ -17,29 +12,10 @@ const CrudForm = ()=>{
             alert('Faltan datos');
         }
         if(dataForm.id === null){
-            // Funcion Para Crear un nuevo dato dentro del objeto - POST
-                //Encabezado necesarios para que se ejecute le post
-                let encabezados = {body:dataForm,
-                                headers:{'Content-Type': 'application/json'},
-                                };
-
-                helpHttp().post('http://localhost:5000/',encabezados).then((res)=>{
-                //console.log(res);
-                if(!res.err){
-                    alert('correcto');
-                }else{
-                   alert('error');
-                }
-                });
-    }
-}
-    //Funcion que captura el dato en el placeholder
-    const handleChange =(e)=>{
-        setDataForm({
-            ...dataForm,
-            [e.target.name]:e.target.value,
-          });
+            createData();
         }
+    }
+    
         return(
             <>  
             <form onSubmit={handleSubmit}>
