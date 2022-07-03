@@ -44,6 +44,32 @@ function App() {
     });
   }
 
+  //Eliminar datos
+  const deleteData=(data)=>{
+    let isDelete = window.confirm(`Estas seguro de eliminar el registro con el ID:${data.id} ?`); //Alerta de elimininacion
+    let endpoint = `${URL}`;
+    let encabezados = {body:{'id':`${data.id}`},
+                        headers:{'Content-Type': 'application/json'},
+                      };
+    //Eliminando el elemento
+    if(isDelete){ // si le dio OK
+      helpHttp().del(endpoint,encabezados).then((res)=>{
+        if(!res.err){
+
+          let newData = dataGet.filter(item=>item.id !== data.id); // llena este nuevo arreglo sin el id que se va eliminar
+          setDataGet(newData); //Actualizalo pero con los nuevos datos
+
+        }else{
+          alert('Error');
+        }
+      })
+    }else{
+      return;
+    }
+
+  }
+
+  //Crear dato
   const createData = ()=>{
     // Funcion Para Crear un nuevo dato dentro del objeto - POST
                 //Encabezado necesarios para que se ejecute le post
@@ -53,7 +79,7 @@ function App() {
 
                   helpHttp().post('http://localhost:5000/',encabezados).then((res)=>{
                   //console.log(res);
-                  if(!res.err){
+                  if(!res.err){         
                      setDataGet([...dataGet,dataForm]);
                   }else{
                     alert('error');
@@ -69,7 +95,7 @@ function App() {
              dataForm={dataForm}>
           
   </CrudForm>
-   {dataGet && <Tabla data={dataGet}></Tabla>}
+   {dataGet && <Tabla data={dataGet} deleteData={deleteData}></Tabla>}
    </>
   );
 }

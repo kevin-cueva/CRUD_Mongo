@@ -2,7 +2,7 @@ import React from "react";
 /* import { useState, useEffect} from 'react';
 import {helpHttp} from '../helpers/helpHttp'; */
 
-const Tabla = ({data})=>{
+const Tabla = ({data, deleteData})=>{
     
     
     
@@ -26,6 +26,10 @@ const Tabla = ({data})=>{
                 data.map((item,index)=><tr key={index}>
                     <td>{item.nombre}</td>
                     <td>{item.signo}</td>
+                    <td>
+                      <button>Editar</button>
+                      <button onClick={()=>deleteData(item)}>Eliminar</button>
+                    </td>
                     </tr>)           
                 
             ):(
