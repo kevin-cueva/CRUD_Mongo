@@ -12,10 +12,11 @@ function App() {
   //Variables
   const [dataForm, setDataForm] = useState(initialForm); // Variable para recueperar lo que se escribe en los input
   const [dataGet, setDataGet] = useState([]); //Datos tomados del Get inicila
-
+  const [dataToEdit, setDataToEdit] = useState(initialForm); //Dato que recupera el item a cambiar
   //Constantes
   const URL = 'http://localhost:5000/';
 
+  //Carga de datos inicial
   useEffect(()=>{
     helpHttp().get(URL).then((res)=>{
         if(!res.err){ //Manejo de errores
@@ -87,15 +88,25 @@ function App() {
                   });
   }
 
+  const updateData = () =>{
+    console.log('estoy');
+  }
+
  
   return (
    <>
    <CrudForm handleChange={handleChange}
              createData={createData} 
-             dataForm={dataForm}>
+             updateData={updateData}
+             dataForm={dataForm}
+             setDataToEdit={setDataToEdit} 
+             setDataForm={setDataForm}
+             dataToEdit={dataToEdit}>
           
   </CrudForm>
-   {dataGet && <Tabla data={dataGet} deleteData={deleteData}></Tabla>}
+   {dataGet && <Tabla data={dataGet} 
+                      deleteData={deleteData}
+                      setDataToEdit={setDataToEdit}></Tabla>}
    </>
   );
 }

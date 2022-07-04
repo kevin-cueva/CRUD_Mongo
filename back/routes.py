@@ -11,7 +11,11 @@ class Caballeros(Resource):
         data = object_json(detalles)
         return jsonify(data) 
     def post(self):
-        data = request.json
+        data = {
+            "nombre":request.json['nombre'],
+            "signo":request.json['signo']
+        }
+        
         Conexion.collection.insert_one(data)
         return jsonify({"message":"successfully"})
     def delete(self):
@@ -22,5 +26,17 @@ class Caballeros(Resource):
             return jsonify({"messages":'true'})
         else:
             return jsonify({"messages":'false'})
-        
+    def put(self):
+        nombre = request.json['nombre']
+        signo = request.json['signo']
+        id = request.json['id']
+        data = Conexion.collection.update_one({'_id':ObjectId(id)},
+                                              {'$set':
+                                              {'nombre':nombre, 
+                                               'signo':signo}})   
+        if data:
+            return jsonify({'messeges':'true'})
+        else:
+            return jsonify({'messeges':'error'})
+
 
