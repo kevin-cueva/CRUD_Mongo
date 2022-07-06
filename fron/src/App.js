@@ -88,8 +88,21 @@ function App() {
                   });
   }
 
-  const updateData = () =>{
-    console.log('estoy');
+  const updateData = (data) =>{
+    let endpoint = `${URL}`;
+    let encabezados = {body:data,
+      headers:{'Content-Type': 'application/json'},
+     };
+    
+     helpHttp().put(endpoint,encabezados).then((res)=>{
+      //console.log(res);
+        if(!res.err){
+          let newDate = dataGet.map(item => item.id === data.id ? data:item);
+          setDataGet(newDate);
+        }else{
+          alert('error');
+        }
+      });
   }
 
  

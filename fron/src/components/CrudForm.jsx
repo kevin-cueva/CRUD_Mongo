@@ -20,12 +20,13 @@ const CrudForm = ({createData, handleChange, dataForm, setDataForm,dataToEdit,se
         e.preventDefault();
         if(!dataForm.nombre || !dataForm.signo){
             alert('Faltan datos');
+            return;
         }
         if(dataForm.id === null){
             createData();
         }
         if(dataForm.id){
-           updateData();  
+           updateData(dataForm);  
         }
         // Limpia Todo
         handleCleaning();
