@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container-app{
+    /*Centrando Contenido*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    height: 100vh;
+   
+    
+ }
+ .app-rectangulo{
+    border: 5px solid #73A9AD;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+ }
+
+ /** Componentes CrudForm*/
+ .container-formulario{
+
+ }
+ .info-accion{
+    color: #90C8AC;
+    font-size: 3rem;
+    padding-bottom: 15px;
+ }
+ .input-text{
+    background-color: #73A9AD;
+    color:white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: #333 solid 3px;
+    border-radius: 1rem;
+    height: 2.3rem;
+    margin-right: 10px;
+
+ }
+ .input-enviar{
+    background-color: #5cde9d;
+    border-radius: 1rem;
+    height: 2.3rem;
+    margin-right: 10px;
+    padding: 0 5px 0 5px;
+    color: green;
+    font-weight: 600;
+    width: 5rem;
+ }
+ .input-limpiar{
+    background-color: #90C8AC;
+    border-radius: 1rem;
+    height: 2.3rem;
+    margin-right: 10px;
+    padding: 0 5px 0 5px;
+    color: green;
+    font-weight: 600;
+    width: 5rem;
+ }

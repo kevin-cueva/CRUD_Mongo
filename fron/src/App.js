@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { helpHttp } from "./helpers/helpHttp";
 import Tabla from "./components/Tabla";
 import CrudForm from "./components/CrudForm";
+import "./App.css"
 
 const initialForm = { // Objeto bacio para el formulario
   nombre:"",
@@ -107,20 +108,22 @@ function App() {
 
  
   return (
-   <>
-   <CrudForm handleChange={handleChange}
-             createData={createData} 
-             updateData={updateData}
-             dataForm={dataForm}
-             setDataToEdit={setDataToEdit} 
-             setDataForm={setDataForm}
-             dataToEdit={dataToEdit}>
-          
-  </CrudForm>
-   {dataGet && <Tabla data={dataGet} 
-                      deleteData={deleteData}
-                      setDataToEdit={setDataToEdit}></Tabla>}
-   </>
+  <div className="container-app">
+    <div className="app-rectangulo">  
+      <CrudForm handleChange={handleChange}
+                createData={createData} 
+                updateData={updateData}
+                dataForm={dataForm}
+                setDataToEdit={setDataToEdit} 
+                setDataForm={setDataForm}
+                dataToEdit={dataToEdit}>
+              
+      </CrudForm>
+      {dataGet && <Tabla data={dataGet} 
+                          deleteData={deleteData}
+                          setDataToEdit={setDataToEdit}></Tabla>}
+    </div> 
+  </div> 
   );
 }
 
