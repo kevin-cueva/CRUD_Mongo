@@ -37,15 +37,18 @@ const CrudForm = ({createData, handleChange, dataForm, setDataForm,dataToEdit,se
     }
     
         return(
-            <>  
-            {dataToEdit.id ? (<h2>Editando</h2>):(<h2>Creando</h2>)}
+            <div className="container-formulario">  
+            {dataToEdit.id ? (<h2 className="info-accion">Editando</h2>):(<h2 className="info-accion">Creando</h2>)}
             <form onSubmit={handleSubmit}>
-            <input type="text" name="nombre" placeholder="Nombre" onChange={handleChange} value = {dataForm.nombre}/>  
-            <input type="text" name="signo" placeholder="Signo" onChange={handleChange} value = {dataForm.signo}/>
-            <input type="submit" value="Enviar"/>   {/*Boton para enviar el formulario*/}
-            <input type="button" value="Limpiar" onClick={handleCleaning}/>
+            <input type="text" name="nombre" placeholder="Nombre" className="input-text" 
+                   onChange={handleChange} value = {dataForm.nombre}/>  
+            <input type="text" name="signo" placeholder="Signo" className="input-text"
+                   onChange={handleChange} value = {dataForm.signo}/>
+            <input type="submit" value="Enviar" className="input-enviar"/>   {/*Boton para enviar el formulario*/}
+            <input type="button" value="Limpiar" className="input-limpiar   "
+                   onClick={handleCleaning}/>
             </form>
-        </>
+        </div>
     );
 }
 export default CrudForm;
