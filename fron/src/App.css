@@ -66,3 +66,41 @@
     font-weight: 600;
     width: 5rem;
  }
+
+
+ /** CSS Para el componente Tabla.jsx*/
+.container-table{
+   margin-top: 1rem;
+}
+.title-table > th{
+   color: #90e2b9;
+   font-size: 2rem;
+   padding: 0 1rem 1rem 0;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.fila-table > td{
+   font-size: 1.5rem;
+   font-weight: bold;
+   
+   background-color:#99eec3;
+   border: #333 solid 1px;
+   color: #fffafa;
+   
+}
+.boton{
+   margin-right: 1rem;
+   text-align: center;
+   align-items: center;
+
+}
+.material-symbols-outlined{
+   color: #333;
+   background-color:rgb(34, 34, 241);
+   border: 1px solid #333;
+   padding-left: 0 5px 0 5px;
+}
+.delete{
+   color: #333;
+   background-color: rgb(216, 60, 60);
+   border: 1px solid #333;
+}

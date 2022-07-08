@@ -1,17 +1,17 @@
 import React from "react";
 /* import { useState, useEffect} from 'react';
 import {helpHttp} from '../helpers/helpHttp'; */
+import edit from "../img/edit1.svg"
 
 const Tabla = ({data, deleteData, setDataToEdit})=>{
     
     
     
     return(
-        <>
-         <h3>Tabla de datos</h3>
+        <div className="container-table">
         <table>
           <thead>
-            <tr>
+            <tr className="title-table">
 
              <th>Nombre</th>
              <th>Constelacion</th>
@@ -23,12 +23,16 @@ const Tabla = ({data, deleteData, setDataToEdit})=>{
           <tbody>
             {data.length >0?
             (
-                data.map((item,index)=><tr key={index}>
+                data.map((item,index)=><tr key={index} className='fila-table'>
                     <td>{item.nombre}</td>
                     <td>{item.signo}</td>
                     <td>
-                      <button onClick={()=>setDataToEdit(item)}>Editar</button>
-                      <button onClick={()=>deleteData(item)}>Eliminar</button>
+                      <button onClick={()=>setDataToEdit(item)} className="boton">
+                        <span class="material-symbols-outlined">edit_note</span>
+                      </button>
+                      <button onClick={()=>deleteData(item)}>
+                        <span class="material-symbols-outlined delete">delete</span>
+                      </button>
                     </td>
                     </tr>)           
                 
@@ -38,7 +42,7 @@ const Tabla = ({data, deleteData, setDataToEdit})=>{
             }
           </tbody>
           </table>
-        </>
+        </div>
     );
 }
 export default Tabla;

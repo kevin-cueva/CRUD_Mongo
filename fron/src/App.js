@@ -122,7 +122,7 @@ function App() {
       {dataGet && <Tabla data={dataGet} 
                           deleteData={deleteData}
                           setDataToEdit={setDataToEdit}></Tabla>}
-    </div> 
+    </div>
   </div> 
   );
 }
